@@ -1,12 +1,9 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
+#include "common.h"
 
 int main() {
     // Your code starts here
 
-    std::cout << "Hello, world!" << std::endl;
+    std::cout << "Hello, my world!" << std::endl;
 
     return 0;
 }
