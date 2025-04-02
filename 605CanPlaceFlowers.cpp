@@ -3,17 +3,19 @@
 class Solution {
     public:
         bool canPlaceFlowers(vector<int>& flowerbed, int n) {
-            int current_count = 0;
-            for (int i = 0; i < flowerbed.size(); i++) {
-                if (flowerbed[i] == 1 || i == flowerbed.size() - 1) {
-                    int flowers = current_count / 2 - 1;
-                    if (flowers > 0)
-                        n -= flowers;
-                    if (n <= 0)
+            int size = flowerbed.size();
+            if (n == 0)
+            return true;
+            for (int i = 0; i < size; i++) {
+                if (flowerbed[i] == 0) {
+                    bool left_empty = i == 0 || flowerbed[i-1] == 0;
+                    bool right_empty = i == size - 1 || flowerbed[i+1] ==0; 
+                    if (left_empty && right_empty) {
+                        flowerbed[i] = 1;
+                        n--;
+                    }
+                    if (n == 0)
                         return true;
-                }
-                else  {
-                    current_count++;
                 }
             }
             return false;

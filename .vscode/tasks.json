@@ -1,6 +1,19 @@
 {
     "tasks": [
         {
+            "label": "build",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+              "-g", "main.cpp", "-o", "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "group": {
+              "kind": "build",
+              "isDefault": true
+            }
+        },
+      
+        {
             "type": "cppbuild",
             "label": "C/C++: g++.exe build active file",
             "command": "D:\\Tools\\cygwin64\\bin\\g++.exe",
